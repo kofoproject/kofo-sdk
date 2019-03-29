@@ -46,14 +46,15 @@
     `options` params
     * **mqUrl**        *`String required`*  Mqtt server url
     * **mqOptions**  *`Object required`*  Mqtt connection options
-      * **username** *`String required`*  Mqtt server username
-      * **password** *`String required`*  Mqtt server password
+      * **username** *`String required`*  由 `deviceId, kofoId, nonce, overwrite, timestamp` 字段首字母排序生成字串e.g:`deviceId=${deviceId}&kofoId=${kofoId}&nonce=${nonce}&overwrite=${overwrite}&timestamp=${timestamp}`
+      * **password** *`String required`*  使用kofo secret对username进行椭圆曲线签名结果作为password
       * **kofoId** *`String required`*   kofo id
-    * **gateway**    *`String required`*  Block chain gateway server url
-    * **settlement** *`String required`*  Status server url
-    * **insertData** *`Function required`*  Client provide data storage method, e.g: map `storage(key, value)`
-    * **readData**   *`Function required`*  Client provide data reading method, e.g: `read(key)`
-    * **cacheEncrypt**  *`Boolean Optional`* Encrypt cache data, default <u>`true`</u>
+    * **gateway**    *`String required`*  区块链gateway服务器
+    * **settlement** *`String required`*  状态服务器地址
+    * **insertData** *`Function required`*  client 提供的数据缓存方法 e.g: map `storage(key, value)`
+    * **readData**   *`Function required`*  client 提供的缓存数据读取方法, e.g: `read(key)`
+    * **cacheEncrypt**  *`Boolean optional`* 缓存数据是否进行加密, 默认为 <u>`true`</u>
+    * **resetMqOptions** *`Function optional`*  client 提供的mqtt签名过期，重新生成username签名方法，返回:`{kofoId, username, password}`
     ```js
     let dataMap = new Map();
     const insertData = function (key, value) {
@@ -62,6 +63,12 @@
     const readData = function (key) {
         return dataMap.get(key)
     };
+    const resetMqOptions = function(){
+        let timestamp = new Date().getTime();
+        let username = `deviceId=${deviceId}&kofoId=${kofoId}&nonce=${nonce}&overwrite=${overwrite}&timestamp=${timestamp}`;
+        let password = Utils.sign(secret, username);
+        return {kofoId, username, password};
+    }
     const kofo = Kofo.init(options);
     options:
         mqUrl: 'http://127.0.0.1:1883',
@@ -74,7 +81,8 @@
         settlement: "http://settlement.com",
         insertData: insertData,
         readData: readData,
-        cacheEncrypt: false
+        cacheEncrypt: false,
+        resetMqOptions: resetMqOptions
     ```
 
 * #### Kofo.signatureCallback(type, chain, currency, settlementId, signedRawTransaction) 交易签名后回调

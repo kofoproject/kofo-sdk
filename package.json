@@ -1,6 +1,6 @@
 {
   "name": "kofo-sdk",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "KOFO client js sdk",
   "main": "index.js",
   "scripts": {
