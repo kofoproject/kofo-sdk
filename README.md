@@ -1,4 +1,4 @@
-# KOFO SDK APIS
+# KOFO SDK
 ## Install and import
 
 ```bash
@@ -11,7 +11,7 @@ import {Kofo, Utils} from 'kofo-sdk';
 ```
 ## Demo
 
-[Kofo sdk demo](https://github.com/drunken005/kofo-sdk-demo)
+[Kofo sdk demo](https://github.com/kofoproject/kofo-sdk-demo)
 
 ## Docs
 [documents](https://github.com/kofoproject/kofo-sdk/blob/master/docs/API.md)
