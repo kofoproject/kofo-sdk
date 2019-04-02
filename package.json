@@ -22,16 +22,12 @@
   "homepage": "https://github.com/kofoproject/kofo-sdk#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "bs58": "^4.0.1",
-    "crypto-browserify": "^3.12.0",
-    "crypto-js": "^3.1.9-1",
-    "eckey-util": "^1.0.3",
     "events": "^3.0.0",
+    "kofo-utils": "^1.0.1",
     "lodash": "^4.17.11",
     "loglevel": "^1.6.1",
     "loglevel-plugin-prefix": "^0.8.4",
     "moment": "^2.24.0",
-    "mqtt": "^2.18.8",
-    "tslib": "^1.9.3"
+    "mqtt": "^2.18.8"
   }
 }
