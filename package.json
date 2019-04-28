@@ -29,10 +29,12 @@
   },
   "devDependencies": {
     "@zilliqa-js/crypto": "^0.5.0",
+    "@zilliqa-js/util": "^0.5.0",
     "bitcore-lib": "^8.3.0",
     "bitcore-mnemonic": "^8.3.0",
     "eosjs-ecc": "^4.0.4",
     "ethers": "^4.0.27",
-    "tslib": "^1.9.3"
+    "tslib": "^1.9.3",
+    "zilliqa-js": "^0.1.19"
   }
 }
