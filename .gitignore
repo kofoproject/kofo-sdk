@@ -1,6 +1,8 @@
-
+.DS_Store
 node_modules/
 .idea/
 .idea/vcs.xml
 package-lock.json
 test
+src
+dist
