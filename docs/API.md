@@ -146,8 +146,8 @@
     **2.kofo_status_notice(各状态通知事件)**
     返回数据:
     * **init_sdk 初始化SDK**
-        * **`type`** *init_sdk*
-        * **`status`** *success, error, failed*
+        * **`type`** *init_mqtt*
+        * **`status`** *connected, reconnect, closed, error, end*
         * **`message`** Tip message
     * **settlement_info 结算订单信息**
         * **`type`** *settlement_info*

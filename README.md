@@ -76,7 +76,7 @@ import {Kofo, Utils} from 'kofo-sdk';
 
     let createMsgEel = (data) => {
         let el = document.createElement("div");
-        el.innerHTML = `<div class="panel panel-default"><div class="panel-heading"><h5 class="panel-title">${_.toUpper(data.type)}</h5></div><div class="panel-body">${data.type === 'init_sdk' ? data.message : JSON.stringify(data)}</div></div>`;
+        el.innerHTML = `<div class="panel panel-default"><div class="panel-heading"><h5 class="panel-title">${_.toUpper(data.type)}</h5></div><div class="panel-body">${data.type === 'init_mqtt' ? data.message : JSON.stringify(data)}</div></div>`;
         document.getElementById('content').append(el);
     };
 
