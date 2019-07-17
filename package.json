@@ -28,7 +28,7 @@
     "mqtt": "^2.18.8"
   },
   "devDependencies": {
-    "kofo-wallet": "^1.0.9",
+    "kofo-wallet": "^1.1.1",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5"
   }
