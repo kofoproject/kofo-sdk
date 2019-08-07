@@ -85,13 +85,14 @@
         resetMqOptions: resetMqOptions
     ```
 
-* #### Kofo.signatureCallback(type, chain, currency, settlementId, signedRawTransaction) 交易签名后回调
+* #### Kofo.signatureCallback(type, chain, currency, settlementId, signedRawTransaction, pubKey) 交易签名后回调
 
     * **type** 签名事件类型
     * **chain** 交易对应链
     * **currency** 交易对应币种
     * **settlementId** 结算订单ID
     * **signedRawTransaction** 签名后的结果，`类型需要跟消息返回原类型一致`
+    * **pubKey** 签名账号的pubKey, chain=BTC时必填
     ```js
     const sign = function(tx){
         //调用对应链的签名算法进行签名
@@ -103,7 +104,7 @@
         //根据 chain, currency 字段实现不同链的签名，签名的字段是 rawTransaction
         //客户端在这里根据不同的场景可以实现同步或异步签名回调
         const signedRawTransaction = sign(rawTransaction);
-        kofo.signatureCallback(type, chain, currency, settlementId, signedRawTransaction);
+        kofo.signatureCallback(type, chain, currency, settlementId, signedRawTransaction, pubKey);
     }
     kofo.subscribe('kofo_tx_signature', signatureTxhandler);
     ```
