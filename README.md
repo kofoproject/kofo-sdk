@@ -1,5 +1,5 @@
 # KOFO SDK
-KOFO cross chain atomic exchange，Currently supporting **`BTC`** **`USDT`** **`ETH/ERC20`** **`HPB`**  **`TRON`** **`ZILLIQA`** **`EOS`** **`BOS`** **`MEETONE`**
+KOFO cross chain atomic exchange，Currently supporting **`BTC`** **`USDT`** **`ETH/ERC20`** **`HPB`**  **`TRON`** **`ZILLIQA`** **`EOS`** **`BOS`** **`MEETONE`** **`BNB`**
 ## Install and import
 
 ```bash
