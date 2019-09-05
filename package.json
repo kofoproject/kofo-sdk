@@ -1,11 +1,11 @@
 {
   "name": "kofo-sdk",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "KOFO client js sdk",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && npx webpack"
+    "build": "rm -rf src/* && cp -rf lib/* src/ && npx webpack"
   },
   "repository": {
     "type": "git",

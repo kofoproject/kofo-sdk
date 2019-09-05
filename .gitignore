@@ -6,3 +6,4 @@ package-lock.json
 test
 src
 dist
+lib/index.js
