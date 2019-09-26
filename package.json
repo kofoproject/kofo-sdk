@@ -1,11 +1,13 @@
 {
   "name": "kofo-sdk",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "KOFO client js sdk",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf src/* && cp -rf lib/* src/ && npx webpack"
+    "compile": "rm -rf lib && babel src -d lib",
+    "build": "npm run compile && rm -rf dist/ && webpack --config webpack.config.js",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   },
   "homepage": "https://github.com/kofoproject/kofo-sdk#readme",
   "dependencies": {
+    "@babel/runtime": "^7.4.4",
     "axios": "^0.18.0",
     "events": "^3.0.0",
     "kofo-utils": "^1.0.1",
@@ -29,8 +32,37 @@
     "mqtt": "^2.18.8"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-transform-async-to-generator": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "assert": "^2.0.0",
+    "babel-core": "^7.0.0-0",
+    "babel-eslint": "^10.0.2",
+    "babel-jest": "^23.6.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "browserify": "^16.2.3",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^5.2.1",
     "kofo-wallet": "^1.1.6",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5"
-  }
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-async-to-generator",
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-transform-runtime"
+    ]
+  },
+  "files": [
+    "lib/*",
+    "!lib/webpack.build.js"
+  ]
 }

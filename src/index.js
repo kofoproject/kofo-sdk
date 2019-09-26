@@ -1,11 +1,4 @@
-const Kofo = {
-    Sdk: require('./kofo'),
+module.exports = {
+    Kofo: require('./kofo'),
     Utils: require('kofo-utils')
 };
-
-
-(function () {
-    if (!window.Kofo) {
-        window.Kofo = Kofo;
-    }
-})();
