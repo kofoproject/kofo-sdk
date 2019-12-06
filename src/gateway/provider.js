@@ -10,7 +10,8 @@ const gateways = {
     EOS: require('./eos/eos_gateway'),
     BOS: require('./bos/bos_gateway'),
     MEETONE: require('./meetone/meetone_gateway'),
-    BNB: require('./bnb/bnb_gateway')
+    BNB: require('./bnb/bnb_gateway'),
+    KLT: require('./eth/eth_gateway')
 };
 
 function GatewayProvider() {
